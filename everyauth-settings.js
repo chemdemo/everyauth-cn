@@ -53,6 +53,7 @@ var usersByMendeleyId = {};
 var usersByShopifyId = {};
 var usersByStripeId = {};
 var usersBySalesforceId = {};
+var usersByQQId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -61,6 +62,16 @@ everyauth.everymodule
   .findUserById( function (id, callback) {
     callback(null, usersById[id]);
   });
+
+everyauth
+  .qq
+    .appId(conf.qq.appId)
+    .appKey(conf.qq.appKey)
+    .findOrCreateUser( function (session, accessToken, accessTokenExtra, fbUserMetadata) {
+      return usersByFbId[fbUserMetadata.id] ||
+        (usersByFbId[fbUserMetadata.id] = addUser('facebook', fbUserMetadata));
+    })
+    .redirectPath('/');
 
 everyauth
   .facebook

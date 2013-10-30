@@ -4,6 +4,8 @@
     a(href='/register') Register
   #password-login
     a(href='/login', style='border: 0px') Login with Password
+  #qq-login
+    a(href='/auth/qq', style='border: 0px') Login with QQ
   #twitter-login
     a(href='/auth/twitter', style='border: 0px') twitter
   #github-login
@@ -60,13 +62,13 @@
     p= JSON.stringify(everyauth.vimeo.user)
   - if (everyauth.justintv)
     h3 Justin.tv User Data
-    p= JSON.stringify(everyauth.justintv.user)  
+    p= JSON.stringify(everyauth.justintv.user)
   - if (everyauth['37signals'])
     h3 37signals User Data
-    p= JSON.stringify(everyauth['37signals'].user)  
+    p= JSON.stringify(everyauth['37signals'].user)
   - if (everyauth.tumblr)
     h3 Tumblr User Data
-    p= JSON.stringify(everyauth.tumblr.user)  
+    p= JSON.stringify(everyauth.tumblr.user)
   - if (everyauth.box)
     h3 Box.net User Data
     p= JSON.stringify(everyauth.box.user)
