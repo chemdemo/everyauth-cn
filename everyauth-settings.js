@@ -66,10 +66,20 @@ everyauth.everymodule
 everyauth
   .qq
     .appId(conf.qq.appId)
-    .appKey(conf.qq.appKey)
-    .findOrCreateUser( function (session, accessToken, accessTokenExtra, fbUserMetadata) {
-      return usersByFbId[fbUserMetadata.id] ||
-        (usersByFbId[fbUserMetadata.id] = addUser('facebook', fbUserMetadata));
+    .appSecret(conf.qq.appKey)
+    .findOrCreateUser( function (session, accessToken, accessTokenExtra, qqUserMetadata) {
+      return usersByQQId[qqUserMetadata.id] ||
+        (usersByQQId[qqUserMetadata.id] = addUser('qq', qqUserMetadata));
+    })
+    .redirectPath('/');
+
+everyauth
+  .weibo
+    .appId(conf.qq.appKey)
+    .appSecret(conf.qq.appSecret)
+    .findOrCreateUser( function (session, accessToken, accessTokenExtra, weiboUserMetadata) {
+      return usersByWeiboId[weiboUserMetadata.id] ||
+        (usersByWeiboId[weiboUserMetadata.id] = addUser('weibo', weiboUserMetadata));
     })
     .redirectPath('/');
 
