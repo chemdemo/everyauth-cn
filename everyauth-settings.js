@@ -75,8 +75,8 @@ everyauth
 
 everyauth
   .weibo
-    .appId(conf.qq.appKey)
-    .appSecret(conf.qq.appSecret)
+    .appId(conf.weibo.appKey)
+    .appSecret(conf.weibo.appSecret)
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, weiboUserMetadata) {
       return usersByWeiboId[weiboUserMetadata.id] ||
         (usersByWeiboId[weiboUserMetadata.id] = addUser('weibo', weiboUserMetadata));
