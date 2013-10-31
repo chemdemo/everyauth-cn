@@ -8,8 +8,8 @@ module.exports = {
       , consumerSecret: 'GNqKfPqtzOcsCtFbGTMqinoATHvBcy1nzCTimeA9M0'
     }
   , github: {
-        appId: '11932f2b6d05d2a5fa18'//da99f7d527e218b87442
-      , appSecret: '2603d1bc663b74d6732500c1e9ad05b0f4013593'//a03b1b9c23209393247aac90979cd03667e8ce2e
+        appId: 'da99f7d527e218b87442'//da99f7d527e218b87442
+      , appSecret: 'a03b1b9c23209393247aac90979cd03667e8ce2e'//a03b1b9c23209393247aac90979cd03667e8ce2e
     }
   , google: { // https://code.google.com/apis/console/#project:978206284436:access
         clientId: '978206284436-lft3o5efu684bmrqbnrcom4nmpf4qepl.apps.googleusercontent.com'
