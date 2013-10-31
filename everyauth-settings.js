@@ -65,6 +65,7 @@ everyauth.everymodule
 
 everyauth
   .qq
+    .myHostname('http://oauth.dmfeel.com')
     .appId(conf.qq.appId)
     .appSecret(conf.qq.appKey)
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, qqUserMetadata) {
@@ -75,6 +76,7 @@ everyauth
 
 everyauth
   .weibo
+    .myHostname('http://oauth.dmfeel.com')
     .appId(conf.weibo.appKey)
     .appSecret(conf.weibo.appSecret)
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, weiboUserMetadata) {
@@ -166,7 +168,7 @@ everyauth
     .registerSuccessRedirect('/');
 
 everyauth.github
-  .myHostname('http://dmfeel.com:3000')
+  .myHostname('http://oauth.dmfeel.com')
   .appId(conf.github.appId)
   .appSecret(conf.github.appSecret)
   .findOrCreateUser( function (sess, accessToken, accessTokenExtra, ghUser) {
@@ -175,7 +177,7 @@ everyauth.github
   .redirectPath('/');
 
 everyauth.google
-  .myHostname('http://dmfeel.com:3000')
+  .myHostname('http://oauth.dmfeel.com')
   .appId(conf.google.clientId)
   .appSecret(conf.google.clientSecret)
   .scope('https://www.googleapis.com/auth/userinfo.profile https://www.google.com/m8/feeds/')
