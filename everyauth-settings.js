@@ -54,6 +54,7 @@ var usersByShopifyId = {};
 var usersByStripeId = {};
 var usersBySalesforceId = {};
 var usersByQQId = {};
+var usersByWeiboId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
