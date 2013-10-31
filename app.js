@@ -13,8 +13,8 @@ require('./everyauth-settings');
 var app = express();
 
 app
-  .set('port', process.env.PORT || 3000)
-  // .use(express.static(__dirname + '/img'))
+  .set('port', process.env.PORT || 3010)
+  .use(express.static(__dirname + '/pub'))
   .use(express.logger('dev'))
   .use(express.bodyParser())
   .use(express.methodOverride())
@@ -30,20 +30,6 @@ app.configure( function () {
   app.set('view engine', 'jade');
   app.set('views', __dirname + '/views');
 });
-
-/*app.use(function(req, res, next) {
-  var d = domain.create();
-  d.on('error', function(err) {
-    logger(err);
-    res.statusCode = 500;
-    res.send(500, 'Server error.');
-    d.dispose();
-  });
-
-  d.add(req);
-  d.add(res);
-  d.run(next);
-});*/
 
 routes(app);
 
