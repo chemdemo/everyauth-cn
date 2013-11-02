@@ -5,7 +5,7 @@ var seq = require('node-seq');
 var flow = require('flow');
 
 // app.use(require('social-oauth')(conf))
-exports = module.exports = function socialOAuth(options) {
+var socialOAuth = module.exports = function(options) {
 	var conf = options.conf || require(__dirname + '/lib/config-default');
 
 	// TODO
@@ -15,7 +15,7 @@ exports = module.exports = function socialOAuth(options) {
 	}
 };
 
-function fetchUser() {
+function fetchUser(req, callback) {
 	;
 };
 
