@@ -1,11 +1,22 @@
 {
-  "name": "social-oauth",
-  "description": "expressjs or connect social oauth middleware",
-  "version": "0.0.1",
-  "private": true,
-  "dependencies": {
-    "express": "3.x",
-    "everyauth": "~0.4.5",
-    "jade": "*"
-  }
+    "name": "social-oauth",
+    "description": "expressjs or connect social oauth middleware",
+    "version": "0.0.1",
+    "author": "dmyang <yangdemo@gmail.com>",
+    "main": "./index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/chemdemo/social-oauth.git"
+    },
+    "dependencies": {
+        "express": "3.x",
+        "everyauth": "~0.4.5",
+        "jade": "*"
+    },
+    "engine": {
+        "node": ">= 0.8.0"
+    },
+    "keywords": [
+        "social-oauth", "oauth", "auth", "social", "sns", "login"
+    ]
 }
