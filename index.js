@@ -1,24 +1,23 @@
 var path = require('path');
 var fs = require('fs');
+var everyauth = require('everyauth');
 
-var seq = require('node-seq');
-var flow = require('flow');
+var socialauth = module.exports = everyauth;
 
-// app.use(require('social-oauth')(conf))
-var socialOAuth = module.exports = function(options) {
-	var conf = options.conf || require(__dirname + '/lib/config-default');
+var files = fs.readdirSync(__dirname + '/lib/modules');
+var includes = files.filter(function(file) {return path.basename(fname, '.js');});
 
-	// TODO
-	return function(req, res, next) {
-		// This middleware must be set after connect.session
-		if(!req.session) return next();
-	}
-};
-
-function fetchUser(req, callback) {
-	;
-};
-
-function setLocals(req, res, alias) {
-	;
-};
+includes.forEach(function(name) {
+    Object.defineProperty(socialauth, name, {
+        get: function(name) {
+            return function() {
+                var mod = this.modules[name] || this.modules[name] = require('lib/modules/' + name);
+                if(!mod.socialauth) mod.socialauth = this;
+                if(mod.shouldSetup) {
+                    this.enabled[name] = mod;
+                }
+                return mod;
+            };
+        }(name)
+    });
+});
