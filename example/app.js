@@ -3,50 +3,30 @@
  * @Author: <yangdemo@gmail.com>
  */
 
-var express = require('express')
-  , routes = require('./routes')
-  , everyauth = require('everyauth')
-  , domain = require('domain');
-
-require('./everyauth-settings');
-
+var express = require('express');
+var so = require('../index');
 var app = express();
 
+require('./auth-settings');
+
 app
-  .set('port', process.env.PORT || 3010)
-  .use(express.static(__dirname + '/pub'))
-  .use(express.logger('dev'))
-  .use(express.bodyParser())
-  .use(express.methodOverride())
-  .use(express.cookieParser('cooke_paser'))
-  .use(express.session())
-  .use(everyauth.middleware(app))
-  .use(app.router)
-  .configure('production', function() {
-    app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-  });
+    .set('port', process.env.PORT || 3015)
+    .use(express.static(__dirname + '/pub'))
+    .use(express.logger('dev'))
+    .use(express.bodyParser())
+    .use(express.cookieParser('cooke_paser'))
+    .use(express.session())
+    .use(so.middleware(app));
 
 app.configure( function () {
-  app.set('view engine', 'jade');
-  app.set('views', __dirname + '/views');
+    app.set('view engine', 'jade');
+    app.set('views', __dirname + '/views');
 });
 
-routes(app);
-
-function on404(req, res, next) {
-    console.log(404, req.url);
-    res.send(404, 'Page not found!');
-}
-
-function errorHandler(err, req, res, next) {
-    console.error(err, err.status, err.stack);
-    res.status(500);
-    res.send(500, err);
-}
-
-app.use(on404);
-app.use(errorHandler);
+app.get('/', function(req, res, next) {
+    res.render('home');
+});
 
 app.listen(app.get('port'), function() {
-  console.log("Application listening on port %s in %s mode, pid: %s.", app.get('port'), app.settings.env, process.pid);
+    console.log("Application listening on port %s in %s mode, pid: %s.", app.get('port'), app.settings.env, process.pid);
 });

@@ -1,4 +1,4 @@
-- if (!everyauth.loggedIn)
+- if (!socialoauth.loggedIn)
   h2 Not Authenticated
   #register
     a(href='/register') Register
@@ -8,110 +8,31 @@
     a(href='/auth/qq', style='border: 0px') Login with QQ
   #weibo-login
     a(href='/auth/weibo', style='border: 0px') Login with weibo
-  #twitter-login
-    a(href='/auth/twitter', style='border: 0px') twitter
+  #douban-login
+    a(href='/auth/douban', style='border: 0px') Login with douban
+  #baidu-login
+    a(href='/auth/baidu', style='border: 0px') Login with baidu
   #github-login
     a(href='/auth/github', style='border: 0px') github
-  #google-login
-    a(href='/auth/google', style='border: 0px') google
-  #dropbox-login
-    a(href='/auth/dropbox', style='border: 0px') dropbox
-  #evernote-login
-    a(href='/auth/evernote', style='border: 0px') evernote
 - else
   h2 Authenticated
-  - if (everyauth.facebook)
-    h3 Facebook User Data
-    p= JSON.stringify(everyauth.facebook.user)
-  - if (everyauth.azureacs)
-    h3 Azure ACS User Data
-    p= JSON.stringify(everyauth.azureacs.user)
-  - if (everyauth.twitter)
-    h3 Twitter User Data
-    p= JSON.stringify(everyauth.twitter.user)
-  - if (everyauth.github)
+  - if (socialoauth.github)
     h3 GitHub User Data
-    p= JSON.stringify(everyauth.github.user)
-  - if (everyauth.instagram)
-    h3 Instagram User Data
-    p= JSON.stringify(everyauth.instagram.user)
-  - if (everyauth.foursquare)
-    h3 Foursquare User Data
-    p= JSON.stringify(everyauth.foursquare.user)
-  - if (everyauth.gowalla)
-    h3 Gowalla User Data
-    p= JSON.stringify(everyauth.gowalla.user)
-  - if (everyauth.linkedin)
-    h3 LinkedIn User Data
-    p= JSON.stringify(everyauth.linkedin.user)
-  - if (everyauth.google)
-    h3 Google User Data
-    p= JSON.stringify(everyauth.google.user)
-  - if (everyauth.angellist)
-    h3 AngelList User Data
-    p= JSON.stringify(everyauth.angellist.user)
-  - if (everyauth.yahoo)
-    h3 Yahoo User Data
-    p= JSON.stringify(everyauth.yahoo.user)
-  - if (everyauth.readability)
-    h3 Readability User Data
-    p= JSON.stringify(everyauth.readability.user)
-  - if (everyauth.dropbox)
-    h3 Dropbox User Data
-    p= JSON.stringify(everyauth.dropbox.user)
-  - if (everyauth.vimeo)
-    h3 Vimeo User Data
-    p= JSON.stringify(everyauth.vimeo.user)
-  - if (everyauth.justintv)
-    h3 Justin.tv User Data
-    p= JSON.stringify(everyauth.justintv.user)
-  - if (everyauth['37signals'])
-    h3 37signals User Data
-    p= JSON.stringify(everyauth['37signals'].user)
-  - if (everyauth.tumblr)
-    h3 Tumblr User Data
-    p= JSON.stringify(everyauth.tumblr.user)
-  - if (everyauth.box)
-    h3 Box.net User Data
-    p= JSON.stringify(everyauth.box.user)
-  - if (everyauth.openid)
-    h3 Openid User Data
-    p= JSON.stringify(everyauth.openid.user)
-  - if (everyauth.dwolla)
-    h3 Dwolla User Data
-    p= JSON.stringify(everyauth.dwolla.user)
-  - if (everyauth.skyrock)
-    h3 Skyrock User Data
-    p= JSON.stringify(everyauth.skyrock.user)
-  - if (everyauth.evernote)
-    h3 Evernote User Data
-    p= JSON.stringify(everyauth.evernote.user)
-  - if (everyauth.tripit)
-    h3 TripIt User Data
-    p= JSON.stringify(everyauth.tripit.user)
-  - if (everyauth['500px'])
-    h3 500px User Data
-    p= JSON.stringify(everyauth['500px'].user)
-  - if (everyauth['soundcloud'])
-    h3 SoundCloud User Data
-    p= JSON.stringify(everyauth['soundcloud'].user)
-  - if (everyauth.mixi)
-    h3 mixi User Data
-    p= JSON.stringify(everyauth.mixi.user)
-  - if (everyauth.mailchimp)
-    h3 mailchimp User Data
-    p= JSON.stringify(everyauth.mailchimp.user)
-  - if (everyauth.mendeley)
-    h3 Mendeley User Data
-    p= JSON.stringify(everyauth.mendeley.user)
-  - if (everyauth.shopify)
-    h3 Shopify User Data
-    p= JSON.stringify(everyauth.shopify.user)
-  - if (everyauth.stripe)
-    h3 Stripe User Data
-    p= JSON.stringify(everyauth.stripe.user)
-  - if (everyauth.salesforce)
-    h3 Salesforce User Data
-    p= JSON.stringify(everyauth.salesforce.user)
+    p= JSON.stringify(socialoauth.github.user)
+  - if (socialoauth.qq)
+    h3 QQ User Data
+    p= JSON.stringify(socialoauth.qq.user)
+  - if (socialoauth.weibo)
+    h3 weibo User Data
+    p= JSON.stringify(socialoauth.weibo.user)
+  - if (socialoauth.douban)
+    h3 douban User Data
+    p= JSON.stringify(socialoauth.douban.user)
+  - if (socialoauth.baidu)
+    h3 baidu User Data
+    p= JSON.stringify(socialoauth.baidu.user)
+  - if (socialoauth.github)
+    h3 GitHub User Data
+    p= JSON.stringify(socialoauth.github.user)
   h3
     a(href='/logout') Logout

@@ -1,4 +1,4 @@
-var everyauth = require('everyauth');
+var everyauth = require('../index');
 var conf = require('./conf');
 
 everyauth.debug = true;
@@ -56,7 +56,7 @@ var usersBySalesforceId = {};
 var usersByQQId = {};
 var usersByWeiboId = {};
 var usersByLogin = {
-  'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
+  'demo@example.com': addUser({ login: 'demo@example.com', password: 'pass'})
 };
 
 everyauth.everymodule
@@ -83,16 +83,6 @@ everyauth
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, weiboUserMetadata) {
       return usersByWeiboId[weiboUserMetadata.id] ||
         (usersByWeiboId[weiboUserMetadata.id] = addUser('weibo', weiboUserMetadata));
-    })
-    .redirectPath('/');
-
-everyauth
-  .facebook
-    .appId(conf.fb.appId)
-    .appSecret(conf.fb.appSecret)
-    .findOrCreateUser( function (session, accessToken, accessTokenExtra, fbUserMetadata) {
-      return usersByFbId[fbUserMetadata.id] ||
-        (usersByFbId[fbUserMetadata.id] = addUser('facebook', fbUserMetadata));
     })
     .redirectPath('/');
 
@@ -174,36 +164,5 @@ everyauth.github
   .appSecret(conf.github.appSecret)
   .findOrCreateUser( function (sess, accessToken, accessTokenExtra, ghUser) {
       return usersByGhId[ghUser.id] || (usersByGhId[ghUser.id] = addUser('github', ghUser));
-  })
-  .redirectPath('/');
-
-everyauth.google
-  .myHostname('http://oauth.dmfeel.com')
-  .appId(conf.google.clientId)
-  .appSecret(conf.google.clientSecret)
-  .scope('https://www.googleapis.com/auth/userinfo.profile https://www.google.com/m8/feeds/')
-  .findOrCreateUser( function (sess, accessToken, extra, googleUser) {
-    googleUser.refreshToken = extra.refresh_token;
-    googleUser.expiresIn = extra.expires_in;
-    return usersByGoogleId[googleUser.id] || (usersByGoogleId[googleUser.id] = addUser('google', googleUser));
-  })
-  .redirectPath('/');
-
-everyauth
-  .dropbox
-    .consumerKey(conf.dropbox.consumerKey)
-    .consumerSecret(conf.dropbox.consumerSecret)
-    .findOrCreateUser( function (sess, accessToken, accessSecret, dropboxUserMetadata) {
-      return usersByDropboxId[dropboxUserMetadata.uid] ||
-        (usersByDropboxId[dropboxUserMetadata.uid] = addUser('dropbox', dropboxUserMetadata));
-    })
-    .redirectPath('/')
-
-everyauth.evernote
-  .oauthHost(conf.evernote.oauthHost)
-  .consumerKey(conf.evernote.consumerKey)
-  .consumerSecret(conf.evernote.consumerSecret)
-  .findOrCreateUser( function (sess, accessToken, accessTokenExtra, enUserMetadata) {
-    return usersByEvernoteId[enUserMetadata.userId] || (usersByEvernoteId[enUserMetadata.userId] = addUser('evernote', enUserMetadata));
   })
   .redirectPath('/');
