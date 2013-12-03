@@ -1,25 +1,23 @@
 var path = require('path');
 var fs = require('fs');
+var util = require('util');
 var everyauth = require('./node_modules/everyauth');
 
 // var socialoauth = module.exports = everyauth;
+util.inherits(socialoauth, everyauth);
 
 var files = fs.readdirSync(__dirname + '/lib/modules');
-var includes = files.filter(function(file) {return path.basename(file, '.js');});
+var includes = files.map(function(fname) {return path.basename(fname, '.js');});
 
 includes.forEach(function(name) {
-    Object.defineProperty(everyauth, name, {
+    Object.defineProperty(socialoauth, name, {
         get: (function(name) {
             return function() {
-                var mod = everyauth.modules[name] || everyauth.modules[name] = require('lib/modules/' + name);
-                if(!mod.everyauth) mod.everyauth = everyauth;
-                if(mod.shouldSetup) {
-                    everyauth.enabled[name] = mod;
-                }
+                var mod = this.modules[name] || this.modules[name] = require('lib/modules/' + name);
+                if(!mod.socialoauth) mod.socialoauth = this;
+                this.enabled[name] = mod;
                 return mod;
             };
         })(name)
     });
 });
-
-module.exports = everyauth;
