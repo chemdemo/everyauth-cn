@@ -11,7 +11,8 @@
     "dependencies": {
         "express": "3.x",
         "everyauth": "~0.4.5",
-        "jade": "*"
+        "oauth": "*",
+        "request": "*"
     },
     "engine": {
         "node": ">= 0.8.0"

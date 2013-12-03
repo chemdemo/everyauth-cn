@@ -14,9 +14,9 @@ app
     .use(express.static(__dirname + '/pub'))
     .use(express.logger('dev'))
     .use(express.bodyParser())
-    .use(express.cookieParser('cooke_paser'))
+    .use(express.cookieParser('social_oauth'))
     .use(express.session())
-    .use(so.middleware(app));
+    .use(so.middleware());
 
 app.configure( function () {
     app.set('view engine', 'jade');
