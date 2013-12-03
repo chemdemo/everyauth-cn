@@ -3,7 +3,8 @@ var fs = require('fs');
 var util = require('util');
 var everyauth = require('./node_modules/everyauth');
 
-// var socialoauth = module.exports = everyauth;
+var socialoauth = module.exports = {};
+
 util.inherits(socialoauth, everyauth);
 
 var files = fs.readdirSync(__dirname + '/lib/modules');
