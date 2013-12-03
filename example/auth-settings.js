@@ -1,8 +1,8 @@
-var everyauth = require('../index');
+var socialoauth = require('../index');
 var conf = require('./conf');
 
-everyauth.debug = true;
-everyauth.everymodule.userPkey('uid');
+socialoauth.debug = true;
+socialoauth.everymodule.userPkey('uid');
 
 var usersById = {};
 var nextUserId = 0;
@@ -59,12 +59,12 @@ var usersByLogin = {
   'demo@example.com': addUser({ login: 'demo@example.com', password: 'pass'})
 };
 
-everyauth.everymodule
+socialoauth.everymodule
   .findUserById( function (id, callback) {
     callback(null, usersById[id]);
   });
 
-everyauth
+socialoauth
   .qq
     .myHostname('http://oauth.dmfeel.com')
     .appId(conf.qq.appId)
@@ -75,7 +75,7 @@ everyauth
     })
     .redirectPath('/');
 
-everyauth
+socialoauth
   .weibo
     .myHostname('http://oauth.dmfeel.com')
     .appId(conf.weibo.appKey)
@@ -86,7 +86,7 @@ everyauth
     })
     .redirectPath('/');
 
-everyauth
+socialoauth
   .twitter
     .consumerKey(conf.twit.consumerKey)
     .consumerSecret(conf.twit.consumerSecret)
@@ -95,7 +95,7 @@ everyauth
     })
     .redirectPath('/');
 
-everyauth
+socialoauth
   .password
     .loginWith('email')
     .getLoginPath('/login')
@@ -158,7 +158,7 @@ everyauth
     .loginSuccessRedirect('/')
     .registerSuccessRedirect('/');
 
-everyauth.github
+socialoauth.github
   .myHostname('http://oauth.dmfeel.com')
   .appId(conf.github.appId)
   .appSecret(conf.github.appSecret)
