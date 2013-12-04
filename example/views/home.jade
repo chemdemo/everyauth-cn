@@ -1,4 +1,4 @@
-- if (!socialoauth.loggedIn)
+- if (!everyauth.loggedIn)
   h2 Not Authenticated
   #register
     a(href='/register') Register
@@ -16,23 +16,23 @@
     a(href='/auth/github', style='border: 0px') github
 - else
   h2 Authenticated
-  - if (socialoauth.github)
+  - if (everyauth.github)
     h3 GitHub User Data
-    p= JSON.stringify(socialoauth.github.user)
-  - if (socialoauth.qq)
+    p= JSON.stringify(everyauth.github.user)
+  - if (everyauth.qq)
     h3 QQ User Data
-    p= JSON.stringify(socialoauth.qq.user)
-  - if (socialoauth.weibo)
+    p= JSON.stringify(everyauth.qq.user)
+  - if (everyauth.weibo)
     h3 weibo User Data
-    p= JSON.stringify(socialoauth.weibo.user)
-  - if (socialoauth.douban)
+    p= JSON.stringify(everyauth.weibo.user)
+  - if (everyauth.douban)
     h3 douban User Data
-    p= JSON.stringify(socialoauth.douban.user)
-  - if (socialoauth.baidu)
+    p= JSON.stringify(everyauth.douban.user)
+  - if (everyauth.baidu)
     h3 baidu User Data
-    p= JSON.stringify(socialoauth.baidu.user)
-  - if (socialoauth.github)
+    p= JSON.stringify(everyauth.baidu.user)
+  - if (everyauth.github)
     h3 GitHub User Data
-    p= JSON.stringify(socialoauth.github.user)
+    p= JSON.stringify(everyauth.github.user)
   h3
     a(href='/logout') Logout

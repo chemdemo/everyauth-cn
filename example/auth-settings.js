@@ -2,7 +2,7 @@ var socialoauth = require('../index');
 var conf = require('./conf');
 
 socialoauth.debug = true;
-socialoauth.everymodule.userPkey('uid');
+// socialoauth.everymodule.userPkey('uid');
 
 var usersById = {};
 var nextUserId = 0;
