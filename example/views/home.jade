@@ -1,38 +1,48 @@
-- if (!everyauth.loggedIn)
-  h2 Not Authenticated
-  #register
-    a(href='/register') Register
-  #password-login
-    a(href='/login', style='border: 0px') Login with Password
-  #qq-login
-    a(href='/auth/qq', style='border: 0px') Login with QQ
-  #weibo-login
-    a(href='/auth/weibo', style='border: 0px') Login with weibo
-  #douban-login
-    a(href='/auth/douban', style='border: 0px') Login with douban
-  #baidu-login
-    a(href='/auth/baidu', style='border: 0px') Login with baidu
-  #github-login
-    a(href='/auth/github', style='border: 0px') github
-- else
-  h2 Authenticated
-  - if (everyauth.github)
-    h3 GitHub User Data
-    p= JSON.stringify(everyauth.github.user)
-  - if (everyauth.qq)
-    h3 QQ User Data
-    p= JSON.stringify(everyauth.qq.user)
-  - if (everyauth.weibo)
-    h3 weibo User Data
-    p= JSON.stringify(everyauth.weibo.user)
-  - if (everyauth.douban)
-    h3 douban User Data
-    p= JSON.stringify(everyauth.douban.user)
-  - if (everyauth.baidu)
-    h3 baidu User Data
-    p= JSON.stringify(everyauth.baidu.user)
-  - if (everyauth.github)
-    h3 GitHub User Data
-    p= JSON.stringify(everyauth.github.user)
-  h3
-    a(href='/logout') Logout
+!!! 5
+html
+  head
+    meta(property='qc:admins', content='45314266454064565546375')
+    meta(property='wb:webmaster', content='9e5fb08bcf45c188')
+    title= typeof(title) !== 'undefined' ? title : "everyauth example"
+    script(src='http://static.ak.fbcdn.net/connect/en_US/core.js')
+  body
+    h1 everyauth Example
+    #main
+      - if (!everyauth.loggedIn)
+        h2 Not Authenticated
+        #register
+          a(href='/register') Register
+        #password-login
+          a(href='/login', style='border: 0px') Login with Password
+        #qq-login
+          a(href='/auth/qq', style='border: 0px') Login with QQ
+        #weibo-login
+          a(href='/auth/weibo', style='border: 0px') Login with weibo
+        #douban-login
+          a(href='/auth/douban', style='border: 0px') Login with douban
+        #baidu-login
+          a(href='/auth/baidu', style='border: 0px') Login with baidu
+        #github-login
+          a(href='/auth/github', style='border: 0px') github
+      - else
+        h2 Authenticated
+        - if (everyauth.github)
+          h3 GitHub User Data
+          p= JSON.stringify(everyauth.github.user)
+        - if (everyauth.qq)
+          h3 QQ User Data
+          p= JSON.stringify(everyauth.qq.user)
+        - if (everyauth.weibo)
+          h3 weibo User Data
+          p= JSON.stringify(everyauth.weibo.user)
+        - if (everyauth.douban)
+          h3 douban User Data
+          p= JSON.stringify(everyauth.douban.user)
+        - if (everyauth.baidu)
+          h3 baidu User Data
+          p= JSON.stringify(everyauth.baidu.user)
+        - if (everyauth.github)
+          h3 GitHub User Data
+          p= JSON.stringify(everyauth.github.user)
+        h3
+          a(href='/logout') Logout
