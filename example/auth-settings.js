@@ -87,15 +87,6 @@ socialoauth
     .redirectPath('/');
 
 socialoauth
-  .twitter
-    .consumerKey(conf.twit.consumerKey)
-    .consumerSecret(conf.twit.consumerSecret)
-    .findOrCreateUser( function (sess, accessToken, accessSecret, twitUser) {
-      return usersByTwitId[twitUser.id] || (usersByTwitId[twitUser.id] = addUser('twitter', twitUser));
-    })
-    .redirectPath('/');
-
-socialoauth
   .password
     .loginWith('email')
     .getLoginPath('/login')
