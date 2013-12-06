@@ -34,15 +34,13 @@ var usersByLogin = {
 
 socialoauth.everymodule
   .configurable({
-    myHostname: 'http://oauth.dmfeel.com',
     handleAuthCallbackError: function() {
       var parsedUrl = url.parse(req.url, true);
       var errorDesc = parsedUrl.query.error + "; " + parsedUrl.query.error_description;
 
       // Remove the jade template dependent
       res.send(500, errorDesc);
-    },
-    redirectPath: '/'
+    }
   })
   .findUserById( function (id, callback) {
     callback(null, usersById[id]);
@@ -50,58 +48,80 @@ socialoauth.everymodule
 
 socialoauth
   .qq
+    .myHostname('http://oauth.dmfeel.com')
     .appId(conf.qq.appId)
     .appSecret(conf.qq.appKey)
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, qqUserMetadata) {
       return usersByQQId[qqUserMetadata.id] ||
         (usersByQQId[qqUserMetadata.id] = addUser('qq', qqUserMetadata));
-    });
+    })
+    .redirectPath('/');
 
 socialoauth
   .weibo
+    .myHostname('http://oauth.dmfeel.com')
     .appId(conf.weibo.appKey)
     .appSecret(conf.weibo.appSecret)
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, weiboUserMetadata) {
       return usersByWeiboId[weiboUserMetadata.id] ||
         (usersByWeiboId[weiboUserMetadata.id] = addUser('weibo', weiboUserMetadata));
-    });
+    })
+    .redirectPath('/');
 
 socialoauth
   .baidu
-    // .myHostname('http://oauth.dmfeel.com')
+    .myHostname('http://oauth.dmfeel.com')
+    .myHostname('http://oauth.dmfeel.com')
     .appId(conf.baidu.apiKey)
     .appSecret(conf.baidu.appSecret)
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, baiduUserMetadata) {
       return usersByBaiduId[baiduUserMetadata.id] ||
         (usersByBaiduId[baiduUserMetadata.id] = addUser('baidu', baiduUserMetadata));
-    });
+    })
+    .redirectPath('/');
 
 socialoauth
   .douban
+    .myHostname('http://oauth.dmfeel.com')
     .appId(conf.douban.apiKey)
     .appSecret(conf.douban.Secret)
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, doubanUserMetadata) {
       return usersByDoubanId[doubanUserMetadata.id] ||
         (usersByDoubanId[doubanUserMetadata.id] = addUser('douban', doubanUserMetadata));
-    });
+    })
+    .redirectPath('/');
 
 socialoauth
   .renren
+    .myHostname('http://oauth.dmfeel.com')
     .appId(conf.renren.appKey)
     .appSecret(conf.renren.appSecret)
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, renrenUserMetadata) {
       return usersByRenrenId[renrenUserMetadata.id] ||
         (usersByRenrenId[renrenUserMetadata.id] = addUser('renren', renrenUserMetadata));
-    });
+    })
+    .redirectPath('/');
 
 socialoauth
   .tqq
+    .myHostname('http://oauth.dmfeel.com')
     .appId(conf.tqq.appKey)
     .appSecret(conf.tqq.appSecret)
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, tqqUserMetadata) {
       return usersByTqqId[tqqUserMetadata.id] ||
         (usersByTqqId[tqqUserMetadata.id] = addUser('tqq', tqqUserMetadata));
-    });
+    })
+    .redirectPath('/');
+
+socialoauth.github
+  .myHostname('http://oauth.dmfeel.com')
+  .myHostname('http://oauth.dmfeel.com')
+  .appId(conf.github.appId)
+  .appSecret(conf.github.appSecret)
+  .findOrCreateUser( function (sess, accessToken, accessTokenExtra, ghUser) {
+      return usersByGhId[ghUser.id] || (usersByGhId[ghUser.id] = addUser('github', ghUser));
+  })
+  .redirectPath('/');
 
 socialoauth
   .password
@@ -148,11 +168,3 @@ socialoauth
     })
     .loginSuccessRedirect('/')
     .registerSuccessRedirect('/');
-
-socialoauth.github
-  .myHostname('http://oauth.dmfeel.com')
-  .appId(conf.github.appId)
-  .appSecret(conf.github.appSecret)
-  .findOrCreateUser( function (sess, accessToken, accessTokenExtra, ghUser) {
-      return usersByGhId[ghUser.id] || (usersByGhId[ghUser.id] = addUser('github', ghUser));
-  });
