@@ -60,15 +60,17 @@ var usersByLogin = {
 };
 
 socialoauth.everymodule
-  .findUserById( function (id, callback) {
-    callback(null, usersById[id]);
-  })
-  .handleAuthCallbackError(function (req, res) {
+  .configurable{
+    handleAuthCallbackError: function() {
       var parsedUrl = url.parse(req.url, true);
       var errorDesc = parsedUrl.query.error + "; " + parsedUrl.query.error_description;
 
       // Remove the jade template dependent
       res.send(500, errorDesc);
+    }
+  }
+  .findUserById( function (id, callback) {
+    callback(null, usersById[id]);
   });
 
 socialoauth
