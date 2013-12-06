@@ -62,6 +62,13 @@ var usersByLogin = {
 socialoauth.everymodule
   .findUserById( function (id, callback) {
     callback(null, usersById[id]);
+  })
+  .handleAuthCallbackError(function (req, res) {
+      var parsedUrl = url.parse(req.url, true);
+      var errorDesc = parsedUrl.query.error + "; " + parsedUrl.query.error_description;
+
+      // Remove the jade template dependent
+      res.send(500, errorDesc);
   });
 
 socialoauth
@@ -73,6 +80,13 @@ socialoauth
       return usersByQQId[qqUserMetadata.id] ||
         (usersByQQId[qqUserMetadata.id] = addUser('qq', qqUserMetadata));
     })
+    // .handleAuthCallbackError(function (req, res) {
+    //     var parsedUrl = url.parse(req.url, true);
+    //     var errorDesc = parsedUrl.query.error + "; " + parsedUrl.query.error_description;
+
+    //     // Remove the jade template dependent
+    //     res.send(500, errorDesc);
+    // })
     .redirectPath('/');
 
 socialoauth
