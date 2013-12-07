@@ -41,11 +41,31 @@ socialoauth.everymodule
 
       // Remove the jade template dependent
       console.log(util.inspect(errorDesc, {colors: true, depth: null}));
-      res.send(500, errorDesc);
+      res.send(500, 'errorDesc');
     }
   })
   .findUserById( function (id, callback) {
     callback(null, usersById[id]);
+  })
+  .moduleErrback(function (err, seqValues) {
+    if (err instanceof Error) {console.log(1)
+        var next = seqValues.next;
+        return next(err);
+    } else if (err.extra) {console.log(2)
+        var dbResponse = err.extra.res
+            , serverResponse = seqValues.res;
+
+        serverResponse.writeHead(dbResponse.statusCode, dbResponse.headers);
+        serverResponse.end(err.extra.data);
+    } else if (err.statusCode) {console.log(3)
+        var serverResponse = seqValues.res;
+
+        serverResponse.writeHead(err.statusCode);
+        serverResponse.end(err.data);
+    } else {console.log(4)
+        console.error(err);
+        throw new Error('不支持的错误类型！');
+    }
   });
 
 socialoauth
