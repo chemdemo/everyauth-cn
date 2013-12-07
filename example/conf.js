@@ -42,8 +42,8 @@ module.exports = {
     , appSecret: 'GGlTir0f50AaIHgurOPz4QjICQEKEd9c'
   }
   , douban: {
-    apiKey: '0ff7575358022a652fe605fa08067f2f'
-    , Secret: '2779ffaca25631c5'
+    apiKey: '00f40e937cdb2eca02dc2bba76918c5e'
+    , Secret: 'd3d1228a10513647'
   }
   , renren: {
     appId: '243368'
