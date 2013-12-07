@@ -95,7 +95,7 @@ socialoauth
 
 socialoauth
   .renren
-    .myHostname('')
+    .myHostname('http://oauth.dmfeel.com')
     .appId(conf.renren.appKey)
     .appSecret(conf.renren.appSecret)
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, renrenUserMetadata) {
