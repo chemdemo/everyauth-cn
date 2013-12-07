@@ -117,7 +117,6 @@ socialoauth
 
 socialoauth.github
   .myHostname('http://oauth.dmfeel.com')
-  .myHostname('http://oauth.dmfeel.com')
   .appId(conf.github.appId)
   .appSecret(conf.github.appSecret)
   .findOrCreateUser( function (sess, accessToken, accessTokenExtra, ghUser) {
