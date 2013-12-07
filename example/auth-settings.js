@@ -1,5 +1,6 @@
 var socialoauth = require('../index');
 var conf = require('./conf');
+var util = require('util');
 
 socialoauth.debug = true;
 // socialoauth.everymodule.userPkey('uid');
@@ -39,6 +40,7 @@ socialoauth.everymodule
       var errorDesc = parsedUrl.query.error + "; " + parsedUrl.query.error_description;
 
       // Remove the jade template dependent
+      console.log(util.inspect(errorDesc, {colors: true, depth: null}));
       res.send(500, errorDesc);
     }
   })
