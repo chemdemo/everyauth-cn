@@ -34,8 +34,7 @@ var usersByLogin = {
 };
 
 everyauth.everymodule
-  .configurable({
-    handleAuthCallbackError: function() {
+  .handleAuthCallbackError(function(req, res) {
       var parsedUrl = url.parse(req.url, true);
       var errorDesc = parsedUrl.query.error + "; " + parsedUrl.query.error_description;
 
@@ -52,10 +51,10 @@ everyauth.everymodule
         var next = seqValues.next;
         return next(err);
     } else if (err.extra) {
-        var dbResponse = err.extra.res
+        var res = err.extra.res
             , serverResponse = seqValues.res;
 
-        serverResponse.writeHead(dbResponse.statusCode, dbResponse.headers);
+        serverResponse.writeHead(res.statusCode, res.headers);
         serverResponse.end(err.extra.data);
     } else if (err.statusCode) {
         var serverResponse = seqValues.res;
