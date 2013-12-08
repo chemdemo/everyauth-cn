@@ -45,7 +45,7 @@ everyauth.middleware = function (opts) {
         fetchUserFromSession(req, function (err) {
             addRequestLocals(req, res, userAlias);
             registerReqGettersAndMethods(req);
-                if (router) {
+            if (router) {
                 router._dispatch(req, res, next);
             } else {
                 next();

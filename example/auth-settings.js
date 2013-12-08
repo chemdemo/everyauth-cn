@@ -1,9 +1,9 @@
-var socialoauth = require('../index');
+var everyauth = require('../index');
 var conf = require('./conf');
 var util = require('util');
 
-socialoauth.debug = true;
-// socialoauth.everymodule.userPkey('uid');
+everyauth.debug = true;
+everyauth.everymodule.userPkey('uid');
 
 var usersById = {};
 var nextUserId = 0;
@@ -33,7 +33,7 @@ var usersByLogin = {
   'demo@example.com': addUser({ login: 'demo@example.com', password: 'pass'})
 };
 
-socialoauth.everymodule
+everyauth.everymodule
   .configurable({
     handleAuthCallbackError: function() {
       var parsedUrl = url.parse(req.url, true);
@@ -68,7 +68,7 @@ socialoauth.everymodule
     }
   });
 
-socialoauth
+everyauth
   .qq
     .myHostname('http://oauth.dmfeel.com')
     .appId(conf.qq.appId)
@@ -79,7 +79,7 @@ socialoauth
     })
     .redirectPath('/');
 
-socialoauth
+everyauth
   .weibo
     .myHostname('http://oauth.dmfeel.com')
     .appId(conf.weibo.appKey)
@@ -90,7 +90,7 @@ socialoauth
     })
     .redirectPath('/');
 
-socialoauth
+everyauth
   .baidu
     .myHostname('http://oauth.dmfeel.com')
     .myHostname('http://oauth.dmfeel.com')
@@ -102,7 +102,7 @@ socialoauth
     })
     .redirectPath('/');
 
-socialoauth
+everyauth
   .douban
     .myHostname('http://oauth.dmfeel.com')
     .appId(conf.douban.apiKey)
@@ -113,7 +113,7 @@ socialoauth
     })
     .redirectPath('/');
 
-socialoauth
+everyauth
   .renren
     .myHostname('http://oauth.dmfeel.com')
     .appId(conf.renren.appKey)
@@ -124,7 +124,7 @@ socialoauth
     })
     .redirectPath('/');
 
-socialoauth
+everyauth
   .tqq
     .myHostname('http://oauth.dmfeel.com')
     .appId(conf.tqq.appKey)
@@ -135,7 +135,7 @@ socialoauth
     })
     .redirectPath('/');
 
-socialoauth.github
+everyauth.github
   .myHostname('http://oauth.dmfeel.com')
   .appId(conf.github.appId)
   .appSecret(conf.github.appSecret)
@@ -144,7 +144,7 @@ socialoauth.github
   })
   .redirectPath('/');
 
-socialoauth
+everyauth
   .password
     .loginWith('email')
     .getLoginPath('/login')
@@ -167,7 +167,6 @@ socialoauth
       if (user.password !== password) return ['Login failed'];
       return user;
     })
-
     .getRegisterPath('/register')
     .postRegisterPath('/register')
     .registerView('register.jade')
