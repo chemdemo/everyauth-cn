@@ -8,7 +8,7 @@ The `everyauth` proj is strong, it enables you to login via many of sites such g
 
 ## Feature list:
 
-- So far, `everyauth-cn` enables you to login via: `QQ`, `Tencent Weibo`, `Sina Weibo`, `Baidu`, `Douban`, `Renren`.
+- So far, `everyauth-cn` enables you to login via: QQ, Tencent Weibo, Sina Weibo, Baidu, Douban, Renren.
 
 - It also supports password to login.
 
