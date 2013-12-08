@@ -1,29 +1,8 @@
 module.exports = {
-    fb: {
-        appId: '111565172259433'
-      , appSecret: '85f7e0a0cc804886180b887c1f04a3c1'
-    }
-  , twit: {
-        consumerKey: 'JLCGyLzuOK1BjnKPKGyQ'
-      , consumerSecret: 'GNqKfPqtzOcsCtFbGTMqinoATHvBcy1nzCTimeA9M0'
-    }
-  , github: {
-        appId: 'da99f7d527e218b87442'//da99f7d527e218b87442
-      , appSecret: 'a03b1b9c23209393247aac90979cd03667e8ce2e'//a03b1b9c23209393247aac90979cd03667e8ce2e
-    }
-  , google: { // https://code.google.com/apis/console/#project:978206284436:access
-        clientId: '978206284436-lft3o5efu684bmrqbnrcom4nmpf4qepl.apps.googleusercontent.com'
-      , clientSecret: '_G1wvNxkdAZd2-hNHNI8YKTP'
-    }
-  , dropbox: {
-    consumerKey: 'uhfqnbely5stdtm'
-    , consumerSecret: 'jr7ofuwo32l7vkd'
-  }
-  , evernote: {
-    oauthHost: 'https://www.evernote.com'
-    , consumerKey: 'Enter your consumer key here'
-    , consumerSecret: 'Enter your consumer secret here'
-  }
+  // , github: {
+  //       appId: 'da99f7d527e218b87442'//da99f7d527e218b87442
+  //     , appSecret: 'a03b1b9c23209393247aac90979cd03667e8ce2e'//a03b1b9c23209393247aac90979cd03667e8ce2e
+  //   }
   , qq: {
     appId: '100546843'
     , appKey: '4f185e7eb43378f09114e679a7f58203'

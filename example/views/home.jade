@@ -26,8 +26,6 @@ html
           a(href='/auth/renren', style='border: 0px') Login with renren
         #tqq-login
           a(href='/auth/tqq', style='border: 0px') Login with tqq
-        #github-login
-          a(href='/auth/github', style='border: 0px') github
       - else
         h2 Authenticated
         - if (everyauth.github)
@@ -51,8 +49,5 @@ html
         - if (everyauth.tqq)
           h3 tqq User Data
           p= JSON.stringify(everyauth.tqq.user)
-        - if (everyauth.github)
-          h3 GitHub User Data
-          p= JSON.stringify(everyauth.github.user)
         h3
           a(href='/logout') Logout

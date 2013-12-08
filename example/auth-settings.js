@@ -28,7 +28,7 @@ var usersByBaiduId = {};
 var usersByDoubanId = {};
 var usersByRenrenId = {};
 var usersByTqqId = {};
-var usersByGhId = {};
+// var usersByGhId = {};
 var usersByLogin = {
   'demo@example.com': addUser({ login: 'demo@example.com', password: 'pass'})
 };
@@ -41,28 +41,28 @@ everyauth.everymodule
 
       // Remove the jade template dependent
       console.log(util.inspect(errorDesc, {colors: true, depth: null}));
-      res.send(500, 'errorDesc');
+      res.send(500, errorDesc);
     }
   })
   .findUserById( function (id, callback) {
     callback(null, usersById[id]);
   })
   .moduleErrback(function (err, seqValues) {
-    if (err instanceof Error) {console.log(1)
+    if (err instanceof Error) {
         var next = seqValues.next;
         return next(err);
-    } else if (err.extra) {console.log(2)
+    } else if (err.extra) {
         var dbResponse = err.extra.res
             , serverResponse = seqValues.res;
 
         serverResponse.writeHead(dbResponse.statusCode, dbResponse.headers);
         serverResponse.end(err.extra.data);
-    } else if (err.statusCode) {console.log(3)
+    } else if (err.statusCode) {
         var serverResponse = seqValues.res;
 
         serverResponse.writeHead(err.statusCode);
         serverResponse.end(err.data);
-    } else {console.log(4)
+    } else {
         console.error(err);
         throw new Error('不支持的错误类型！');
     }
@@ -92,7 +92,6 @@ everyauth
 
 everyauth
   .baidu
-    .myHostname('http://oauth.dmfeel.com')
     .myHostname('http://oauth.dmfeel.com')
     .appId(conf.baidu.apiKey)
     .appSecret(conf.baidu.appSecret)
@@ -135,14 +134,14 @@ everyauth
     })
     .redirectPath('/');
 
-everyauth.github
-  .myHostname('http://oauth.dmfeel.com')
-  .appId(conf.github.appId)
-  .appSecret(conf.github.appSecret)
-  .findOrCreateUser( function (sess, accessToken, accessTokenExtra, ghUser) {
-      return usersByGhId[ghUser.id] || (usersByGhId[ghUser.id] = addUser('github', ghUser));
-  })
-  .redirectPath('/');
+// everyauth.github
+//   .myHostname('http://oauth.dmfeel.com')
+//   .appId(conf.github.appId)
+//   .appSecret(conf.github.appSecret)
+//   .findOrCreateUser( function (sess, accessToken, accessTokenExtra, ghUser) {
+//       return usersByGhId[ghUser.id] || (usersByGhId[ghUser.id] = addUser('github', ghUser));
+//   })
+//   .redirectPath('/');
 
 everyauth
   .password
