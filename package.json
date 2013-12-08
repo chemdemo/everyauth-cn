@@ -1,16 +1,16 @@
 {
-    "name": "social-oauth",
-    "description": "expressjs or connect social oauth middleware",
-    "version": "0.0.1",
-    "author": "dmyang <yangdemo@gmail.com>",
+    "name": "everyauth-cn",
+    "description": "expressjs oauth middleware for chinese sns sites.",
+    "version": "0.1.1",
+    "author": "<yangdemo@gmail.com>",
     "main": "./index.js",
     "repository": {
         "type": "git",
-        "url": "https://github.com/chemdemo/social-oauth.git"
+        "url": "https://github.com/chemdemo/everyauth-cn.git"
     },
     "dependencies": {
         "express": "3.x",
-        "everyauth": "~0.4.5",
+        "connect": "*",
         "oauth": "*",
         "request": "*"
     },
@@ -18,6 +18,6 @@
         "node": ">= 0.8.0"
     },
     "keywords": [
-        "social-oauth", "oauth", "auth", "social", "sns", "login"
+        "everyauth-cn", "social oauth", "sns", "login"
     ]
 }
