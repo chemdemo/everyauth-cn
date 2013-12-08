@@ -2,7 +2,7 @@ var everyauth = require('../index');
 var conf = require('./conf');
 var util = require('util');
 
-// 开启debug
+// open debug mode
 everyauth.debug = true;
 
 var usersById = {};
@@ -28,15 +28,14 @@ var usersByBaiduId = {};
 var usersByDoubanId = {};
 var usersByRenrenId = {};
 var usersByTqqId = {};
-// var usersByGhId = {};
 var usersByLogin = {
   'demo@example.com': addUser({ login: 'demo@example.com', password: 'pass'})
 };
 
 everyauth.everymodule
-  //使用uid代替id作为获取到的userid
+  // use `uid` instead of the default `id` as user authentication.
   .userPkey('uid')
-  // 根据id查找用户，这里只做演示简单地保存在局部变量里，实际项目里应该去查询db
+  // use userid to query userinfo from db in real projects.
   .findUserById( function (id, callback) {
     callback(null, usersById[id]);
   });
@@ -109,6 +108,7 @@ everyauth
 
 everyauth
   .password
+    // only support `login`, `email`, or`phone`
     .loginWith('login')
     .getLoginPath('/login')
     .postLoginPath('/login')

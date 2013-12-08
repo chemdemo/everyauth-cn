@@ -1,8 +1,4 @@
 module.exports = {
-  // , github: {
-  //       appId: 'da99f7d527e218b87442'//da99f7d527e218b87442
-  //     , appSecret: 'a03b1b9c23209393247aac90979cd03667e8ce2e'//a03b1b9c23209393247aac90979cd03667e8ce2e
-  //   }
   qq: {
     appId: '100546843'
     , appKey: '4f185e7eb43378f09114e679a7f58203'
