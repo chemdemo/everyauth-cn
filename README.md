@@ -17,10 +17,15 @@
 1. 在想要授权的社交网站注册自己的网站（应用），获取相应的appId和appSecret，这个必须的啦，最后会得到一份配置（如：example/conf.js）
 
 2. 参考`example/auth-settings.js`配置各SNS站点的信息，这里以qq为例说明：
-  `myHostname`：填项目主页地址
-  `appId`：everyauth内部统一定义的变量，各个网站的名称可能不同，如新浪微博的叫`appKey`
-  `appSecret`：同上
-  `findOrCreateUser`：授权成功后，在后台数据库保存或更新用户信息，示例中只是简单地保存在内存里
-  `redirectPath`：授权成功后重定向地址，默认都是跳回`myHostname`指定的地址
+
+`myHostname`：填项目主页地址
+
+`appId`：everyauth内部统一定义的变量，各个网站的名称可能不同，如新浪微博的叫`appKey`
+
+`appSecret`：同上
+
+`findOrCreateUser`：授权成功后，在后台数据库保存或更新用户信息，示例中只是简单地保存在内存里
+
+`redirectPath`：授权成功后重定向地址，默认都是跳回`myHostname`指定的地址
 
 3. 自家账号登陆：
