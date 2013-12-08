@@ -109,7 +109,7 @@ everyauth
 
 everyauth
   .password
-    .loginWith('username')
+    .loginWith('login')
     .getLoginPath('/login')
     .postLoginPath('/login')
     .loginView('login.jade')
