@@ -107,18 +107,9 @@ everyauth
     })
     .redirectPath('/');
 
-// everyauth.github
-//   .myHostname('http://oauth.dmfeel.com')
-//   .appId(conf.github.appId)
-//   .appSecret(conf.github.appSecret)
-//   .findOrCreateUser( function (sess, accessToken, accessTokenExtra, ghUser) {
-//       return usersByGhId[ghUser.id] || (usersByGhId[ghUser.id] = addUser('github', ghUser));
-//   })
-//   .redirectPath('/');
-
 everyauth
   .password
-    .loginWith('email')
+    .loginWith('username')
     .getLoginPath('/login')
     .postLoginPath('/login')
     .loginView('login.jade')
