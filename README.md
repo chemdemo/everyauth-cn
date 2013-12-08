@@ -1,6 +1,6 @@
 ## everyauth-cn
 
-### 基于[everyauth](https://github.com/bnoguchi/everyauth)授权流程实现授权登陆国内主流SNS站点的expressjs中间件。
+基于[everyauth](https://github.com/bnoguchi/everyauth)授权流程实现授权登陆国内主流SNS站点的expressjs中间件。
 
 ### 缘起：
 
