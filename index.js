@@ -22,6 +22,14 @@ everyauth.helpExpress = function () {
 };
 
 everyauth.debug = false;
+everyauth.everymodule.handleAuthCallbackError(function(req, res) {
+    var parsedUrl = url.parse(req.url, true);
+    var errorDesc = parsedUrl.query.error + "; " + parsedUrl.query.error_description;
+
+    // Remove the jade template dependent
+    if(everyauth.debug) console.log(util.inspect(errorDesc, {colors: true, depth: null}));
+    res.send(500, errorDesc);
+});
 
 everyauth.middleware = function (opts) {
     opts = merge({

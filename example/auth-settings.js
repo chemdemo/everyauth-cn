@@ -2,8 +2,8 @@ var everyauth = require('../index');
 var conf = require('./conf');
 var util = require('util');
 
+// 开启debug
 everyauth.debug = true;
-everyauth.everymodule.userPkey('uid');
 
 var usersById = {};
 var nextUserId = 0;
@@ -34,37 +34,17 @@ var usersByLogin = {
 };
 
 everyauth.everymodule
-  .handleAuthCallbackError(function(req, res) {
-      var parsedUrl = url.parse(req.url, true);
-      var errorDesc = parsedUrl.query.error + "; " + parsedUrl.query.error_description;
-
-      // Remove the jade template dependent
-      console.log(util.inspect(errorDesc, {colors: true, depth: null}));
-      res.send(500, errorDesc);
-    }
-  })
+  .userPkey('uid')//使用uid代替id作为获取到的userid
   .findUserById( function (id, callback) {
     callback(null, usersById[id]);
   })
-  .moduleErrback(function (err, seqValues) {
-    if (err instanceof Error) {
-        var next = seqValues.next;
-        return next(err);
-    } else if (err.extra) {
-        var res = err.extra.res
-            , serverResponse = seqValues.res;
+  .handleAuthCallbackError(function(req, res) {
+    var parsedUrl = url.parse(req.url, true);
+    var errorDesc = parsedUrl.query.error + "; " + parsedUrl.query.error_description;
 
-        serverResponse.writeHead(res.statusCode, res.headers);
-        serverResponse.end(err.extra.data);
-    } else if (err.statusCode) {
-        var serverResponse = seqValues.res;
-
-        serverResponse.writeHead(err.statusCode);
-        serverResponse.end(err.data);
-    } else {
-        console.error(err);
-        throw new Error('不支持的错误类型！');
-    }
+    // Remove the jade template dependent
+    if(everyauth.debug) console.log(util.inspect(errorDesc, {colors: true, depth: null}));
+    res.send(500, errorDesc);
   });
 
 everyauth
