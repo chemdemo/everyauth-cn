@@ -34,17 +34,11 @@ var usersByLogin = {
 };
 
 everyauth.everymodule
-  .userPkey('uid')//使用uid代替id作为获取到的userid
+  //使用uid代替id作为获取到的userid
+  .userPkey('uid')
+  // 根据id查找用户，这里只做演示简单地保存在局部变量里，实际项目里应该去查询db
   .findUserById( function (id, callback) {
     callback(null, usersById[id]);
-  })
-  .handleAuthCallbackError(function(req, res) {
-    var parsedUrl = url.parse(req.url, true);
-    var errorDesc = parsedUrl.query.error + "; " + parsedUrl.query.error_description;
-
-    // Remove the jade template dependent
-    if(everyauth.debug) console.log(util.inspect(errorDesc, {colors: true, depth: null}));
-    res.send(500, errorDesc);
   });
 
 everyauth
