@@ -4,9 +4,9 @@ An `express` or `connect` middleware which allows users to login via most of Chi
 
 ## Why everyauth-cn ?
 
-The `everyauth` open source project is so excellent, it enables users to login via many of sites such google, facebook and youtobe. It makes works so easy for developers because everyauth works as a middleware for expressjs(or connect) module, one can just use `app.use(everyauth.middleware())` to enables anyone to login his web sites and get user infomation from session.
+The `everyauth` open source project is so excellent, it enables users to login via many of sites such as google, facebook and youtobe. It makes works so easy for developers because everyauth works as a middleware for expressjs(or connect) module, one can just use `app.use(everyauth.middleware())` to enables anyone to login his web sites and get user infomation from session, for more details please goto [everyauth](https://github.com/bnoguchi/everyauth).
 
-This project is for Chinese users, it reuse most of everyauth's core authorization code and allows Chinese users to login via most of Chinese SNS sites. 
+This project aims connecting users to most of Chinese SNS sites. It reuse most of everyauth's core authorization code, thanks for everyauth open source project and GitHub!
 
 ## Features list:
 
@@ -25,10 +25,6 @@ This project is for Chinese users, it reuse most of everyauth's core authorizati
 ## example:
 
 Click to see the [example app](http://oauth.dmfeel.com).
-
-## Thanks
-
-This project birth inseparable everyauth open source project and GitHub.
 
 ## License
 
