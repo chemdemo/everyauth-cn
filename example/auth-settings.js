@@ -1,6 +1,5 @@
 var everyauth = require('../index');
 var conf = require('./conf');
-var util = require('util');
 
 // open debug mode
 everyauth.debug = true;
