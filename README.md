@@ -6,7 +6,7 @@ An `express` and `connect` middleware allows users to login via most of Chinese 
 
 The `everyauth` open source project is strong, it enables you to login via many of sites such google, facebook and youtobe. This proj is for Chinese users, it allows Chinese users to login via most of Chinese SNS sites. 
 
-## Feature list:
+## Features list:
 
 - So far, everyauth-cn enables you to login via: QQ, Tencent weibo, sina weibo, baidu, douban, renren.
 
