@@ -22,7 +22,7 @@ The `everyauth` open source project is strong, it enables you to login via many 
 
 ## example:
 
-[Click](http://oauth.dmfeel.com) to see the example app.
+Click to see the [example app](http://oauth.dmfeel.com).
 
 ## Thanks
 
