@@ -1,6 +1,4 @@
-[中文版](https://github.com/chemdemo/everyauth-cn/blob/master/README_zh.md)
-
-# everyauth-cn
+# everyauth-cn [中文版](https://github.com/chemdemo/everyauth-cn/blob/master/README_zh.md)
 
 An `express` or `connect` middleware which allows users to login via most of Chinese SNS sites with the same authorization work flow as [everyauth](https://github.com/bnoguchi/everyauth).
 
