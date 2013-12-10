@@ -1,14 +1,16 @@
 # everyauth-cn
 
-An `express` and `connect` middleware allows users to login via most of Chinese SNS sites with the same authorization work flow as [everyauth](https://github.com/bnoguchi/everyauth).
+An `express` or `connect` middleware which allows users to login via most of Chinese SNS sites with the same authorization work flow as [everyauth](https://github.com/bnoguchi/everyauth).
 
 ## Why everyauth-cn ?
 
-The `everyauth` open source project is strong, it enables you to login via many of sites such google, facebook and youtobe. This proj is for Chinese users, it allows Chinese users to login via most of Chinese SNS sites. 
+The `everyauth` open source project is so excellent, it enables users to login via many of sites such google, facebook and youtobe. It makes works so easy for developers because everyauth works as a middleware for expressjs(or connect) module, one can just use `app.use(everyauth.middleware())` to enables anyone to login his web sites and get user infomation from session.
+
+This project is for Chinese users, it reuse most of everyauth's core authorization code and allows Chinese users to login via most of Chinese SNS sites. 
 
 ## Features list:
 
-- So far, everyauth-cn enables you to login via: QQ, Tencent weibo, sina weibo, baidu, douban, renren.
+- So far, everyauth-cn enables you to login via: QQ, Tencent weibo, sina weibo, baidu, douban, renren, it is server-side mode and uses oauth2 authorization work flow.
 
 - It dose also supports password to login.
 
@@ -18,7 +20,7 @@ The `everyauth` open source project is strong, it enables you to login via many 
 
 2. Make some configuration as the example app [does](https://github.com/chemdemo/everyauth-cn/blob/master/example/auth-settings.js).
 
-3. Just copy any modules(such as google, facebook, twitter, github, etc) from [everyauth](https://github.com/bnoguchi/everyauth/tree/master/lib/modules) on demand because everyauth-cn uses and modifies everyauth's core authorization code.
+3. Just copy any modules(such as google, facebook, twitter, github, etc) from [everyauth](https://github.com/bnoguchi/everyauth/tree/master/lib/modules) on demand.
 
 ## example:
 
