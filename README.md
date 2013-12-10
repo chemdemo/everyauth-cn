@@ -20,7 +20,7 @@ This project aims connecting users to most of Chinese SNS sites. It reuse most o
 
 2. Make some configuration as the example app [does](https://github.com/chemdemo/everyauth-cn/blob/master/example/auth-settings.js).
 
-3. Just copy any modules(such as google, facebook, twitter, github, etc) from [everyauth](https://github.com/bnoguchi/everyauth/tree/master/lib/modules) on demand.
+3. Just copy any modules(such as google, facebook, twitter, github, etc) from [everyauth](https://github.com/bnoguchi/everyauth/tree/master/lib/modules) as you need.
 
 ## example:
 
