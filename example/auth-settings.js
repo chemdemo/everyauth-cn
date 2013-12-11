@@ -111,7 +111,7 @@ everyauth
     .loginWith('login')
     .getLoginPath('/login')
     .postLoginPath('/login')
-    .loginView('login.jade')
+    .loginView('login.html')
     .loginLocals( function (req, res, done) {
       setTimeout( function () {
         done(null, {
@@ -131,7 +131,7 @@ everyauth
     })
     .getRegisterPath('/register')
     .postRegisterPath('/register')
-    .registerView('register.jade')
+    .registerView('register.html')
     .registerLocals( function (req, res, done) {
       setTimeout( function () {
         done(null, {
