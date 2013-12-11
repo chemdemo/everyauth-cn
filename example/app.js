@@ -27,11 +27,11 @@ app.configure( function () {
 });
 
 app.get('/', function(req, res, next) {
-    res.render('index', {sess: req.session});
+    res.render('index');
 });
 
 app.get('/user', function(req, res, next) {
-    res.render('user');
+    res.render('user', {sess: req.session});
 });
 
 app.listen(app.get('port'), function() {
