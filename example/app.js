@@ -31,7 +31,7 @@ app.get('/', function(req, res, next) {
 });
 
 app.get('/user', function(req, res, next) {
-    red.render('user');
+    res.render('user');
 });
 
 app.listen(app.get('port'), function() {
