@@ -133,11 +133,8 @@ everyauth
     .postRegisterPath('/register')
     .registerView('register.html')
     .registerLocals( function (req, res, done) {
-      setTimeout( function () {
-        done(null, {
-          title: 'Async Register'
-        });
-      }, 200);
+      done(null, {test: 'hahah'});
+      console.log(12121);
     })
     .validateRegistration( function (newUserAttrs, errors) {
       var login = newUserAttrs.login;
