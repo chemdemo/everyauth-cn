@@ -20,6 +20,44 @@
 </div>
 {% else %}
 <h3>已经登录：</h3>
-<div class="auth-result"></div>
+<div class="auth-result">
+{% if everyauth.qq %}
+<h3>使用QQ账号登陆：</h3>
+<p class="result">JSON.stringify(everyauth.qq, null, '\t');</p>
+{% endif %}
+{% if everyauth.weibo %}
+<h3>使用新浪微博账号登陆：</h3>
+<p class="result">JSON.stringify(everyauth.weibo, null, '\t');</p>
+{% endif %}
+{% if everyauth.baidu %}
+<h3>使用百度账号登陆：</h3>
+<p class="result">JSON.stringify(everyauth.baidu, null, '\t');</p>
+{% endif %}
+{% if everyauth.douban %}
+<h3>使用豆瓣账号登陆：</h3>
+<p class="result">JSON.stringify(everyauth.douban, null, '\t');</p>
+{% endif %}
+{% if everyauth.renren %}
+<h3>使用人人账号登陆：</h3>
+<p class="result">JSON.stringify(everyauth.renren, null, '\t');</p>
+{% endif %}
+{% if everyauth.tqq %}
+<h3>使用腾讯微博账号登陆：</h3>
+<p class="result">JSON.stringify(everyauth.tqq, null, '\t');</p>
+{% endif %}
+{% if everyauth.taobao %}
+<h3>使用淘宝账号登陆：</h3>
+<p class="result">JSON.stringify(everyauth.taobao, null, '\t');</p>
+{% endif %}
+{% if everyauth.alipay %}
+<h3>使用支付宝账号登陆：</h3>
+<p class="result">JSON.stringify(everyauth.alipay, null, '\t');</p>
+{% endif %}
+{% if everyauth.password %}
+<h3>使用pwssword登陆：</h3>
+<p class="result">JSON.stringify(everyauth.password, null, '\t');</p>
+{% endif %}
+</div>
+<p><a href="/logout">登出</a></p>
 {% endif %}
 {% endblock %}
