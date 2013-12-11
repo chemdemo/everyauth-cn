@@ -14,9 +14,6 @@
         "oauth": "https://github.com/ciaranj/node-oauth/tarball/master",
         "request": "2.9.x"
     },
-    "devDependencies": {
-        "jade": "~0.12.1"
-    },
     "engine": {
         "node": ">= 0.8.0"
     },
