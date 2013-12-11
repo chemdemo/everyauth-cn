@@ -88,6 +88,6 @@ button {
     cursor: pointer;
 }
 
-.tips {
+.error-list li {
     color: red;
 }
