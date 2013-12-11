@@ -20,7 +20,6 @@
 </div>
 {% else %}
 <div class="auth-result">
-<h2>UID: {{ everyauth.uid || 0 }} </h2>
 {% if everyauth.qq %}
 <h3>使用QQ账号登陆：</h3>
 <p class="result">{{ JSON.stringify(everyauth.qq.user, null, '\t'); }}</p>
