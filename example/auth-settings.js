@@ -133,8 +133,7 @@ everyauth
     .postRegisterPath('/register')
     .registerView('register.html')
     .registerLocals( function (req, res, done) {
-      done(null, {test: 'hahah'});
-      console.log(12121);
+      done(null, {test: 'test value'});
     })
     .validateRegistration( function (newUserAttrs, errors) {
       var login = newUserAttrs.login;
