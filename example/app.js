@@ -27,7 +27,11 @@ app.configure( function () {
 });
 
 app.get('/', function(req, res, next) {
-    res.render('index');
+    res.render('index', {sess: req.session});
+});
+
+app.get('/user', function(req, res, next) {
+    red.render('user');
 });
 
 app.listen(app.get('port'), function() {
