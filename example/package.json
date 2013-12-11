@@ -7,6 +7,6 @@
     },
     "dependencies": {},
     "devDependencies": {
-        "jade": "*",
+        "swig": "*",
     }
 }

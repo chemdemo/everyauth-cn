@@ -1,0 +1,93 @@
+body {
+    background-color: #FDFFF0;
+    font: 12px/1 Tahoma, simsun;
+    color: #888;
+}
+a {
+    color: #333;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+    color: #0CF;
+}
+
+h1 {
+    font-size: 2em;
+    text-align: center;
+    color: #333;
+    margin-top: 50px;
+}
+
+.box {
+    width: 60%;
+    margin: 100px auto;
+}
+.view-code {
+    color: #C28E8E;
+}
+.auth-sns, .auth-pass {
+    margin-top: 60px;
+}
+.auth-sns a {
+    display: inline-block;
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-image: url(/sns_logo.png);
+}
+.qq {
+    background-position: 0px -60px;
+}
+.weibo {
+    background-position: 0px 0px;
+}
+.baidu {
+    background-position: 0px -300px;
+}
+.douban {
+    background-position: 0px -480px;
+}
+.renren {
+    background-position: 0px -120px;
+}
+.tqq {
+    background-position: 0px -180px;
+}
+.taobao {
+    background-position: 0px -360px;
+}
+.alipay {
+    background-position: 0px -420px;
+}
+.auth-pass a {
+    margin-right: 1em;
+}
+
+form {
+    margin-top: 60px;
+}
+
+form p {
+    margin-top: 20px;
+}
+
+input {
+    outline: none;
+    border: 1px solid #DDD;
+    vertical-align: middle;
+    padding: 3px;
+}
+
+button {
+    border: 1px solid #DDD;
+    background-color: #EEE;
+    padding: 2px 8px;
+    outline: none;
+    cursor: pointer;
+}
+
+.tips {
+    color: red;
+}

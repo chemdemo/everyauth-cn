@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block box %}
+{% if !everyauth.loggedIn %}
+<div class="auth-sns">
+    <h3>使用社交账号授权：</h3>
+    <a class="qq" href="/auth/qq" title="QQ互联"></a>
+    <a class="weibo" href="/auth/weibo" title="新浪微博"></a>
+    <a class="baidu" href="/auth/baidu" title="百度"></a>
+    <a class="douban" href="/auth/douban" title="豆瓣"></a>
+    <a class="renren" href="/auth/renren" title="人人"></a>
+    <a class="tqq" href="/auth/tqq" title="腾讯微博"></a>
+    <a class="taobao" href="/auth/taobao" title="淘宝"></a>
+    <a class="alipay" href="/auth/alipay" title="支付宝"></a>
+</div>
+<div class="auth-pass">
+    <h4>使用自家账号授权：</h4>
+    <a class="register" href="/register">注册</a>
+    <a class="login" href="/login">登录</a>
+</div>
+{% else %}
+<h3>已经登录：</h3>
+<div class="auth-result"></div>
+{% endif %}
+{% endblock %}

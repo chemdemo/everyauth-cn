@@ -4,6 +4,7 @@
  */
 
 var express = require('express');
+var swig = require('swig');
 var everyauthCN = require('../index');
 var app = express();
 
@@ -19,12 +20,15 @@ app
     .use(everyauthCN.middleware());
 
 app.configure( function () {
-    app.set('view engine', 'jade');
+    app.engine('html', swig.renderFile);
+    app.set('view engine', 'html');
     app.set('views', __dirname + '/views');
+    // app.set('view cache', false);
+    // swig.setDefaults({ cache: false });
 });
 
 app.get('/', function(req, res, next) {
-    res.render('home');
+    res.render('index');
 });
 
 app.listen(app.get('port'), function() {

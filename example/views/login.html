@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block box %}
+<form class="login" action="/login" method="POST">
+    <h3>使用密码登录：</h3>
+    <p>
+        <label for="name">名称：</label>
+        <input type="text" id="name" name="{{everyauth.password.loginFormFieldName}}" placeholder="账号名称" />
+    </p>
+    <p>
+        <label for="password">密码：</label>
+        <input type="password" id="password" name="{{everyauth.password.passwordFormFieldName}}" placeholder="账号密码" />
+    </p>
+    <p>
+        <button id="submit" type="submit">提交</button>
+    </p>
+    {% if error %}<p class="tips">{{ error.msg }}</p>{% endif %}
+</form>
+{% endblock %}
