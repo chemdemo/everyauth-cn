@@ -17,7 +17,7 @@
 
     {% if error %}<p class="tips">{{ error.msg }}</p>{% endif %}
 </form>
-{% if ('undefined' !== typeof errors && errors.length) %}
+{% (errors || []).length %}
 <ul class="error-list">
 {% for error in errors %}
     <li>{{ error }}</li>

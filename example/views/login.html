@@ -15,7 +15,7 @@
         <button id="submit" type="submit">提交</button>
     </p>
 </form>
-{% if ('undefined' !== typeof errors && errors.length) %}
+{% (errors || []).length %}
 <ul class="error-list">
 {% for error in errors %}
     <li>{{ error }}</li>

@@ -88,6 +88,10 @@ button {
     cursor: pointer;
 }
 
+.result {
+    margin: 30px auto;
+}
+
 .error-list li {
     color: red;
 }

@@ -111,7 +111,7 @@ everyauth
     .loginWith('login')
     .getLoginPath('/login')
     .postLoginPath('/login')
-    .loginView('login.html')
+    .loginView('login')
     .loginLocals( function (req, res, done) {
       setTimeout( function () {
         done(null, {
