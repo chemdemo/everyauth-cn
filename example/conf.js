@@ -25,4 +25,8 @@ module.exports = {
     , appKey: '234b0201573a489cb63649fa0d28b93b'
     , appSecret: 'c3e3d5f7c5c5477e97efa38303413e93'
   }
+  , taobao: {
+    appKey: '21702706',
+    appSecret: 'c11b6a726591a3f36984fe256c78a658'
+  }
 };
