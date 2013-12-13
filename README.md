@@ -1,4 +1,4 @@
-## everyauth-cn 
+## everyauth-cn [![Build Status](https://api.travis-ci.org/chemdemo/everyauth-cn.png)](http://travis-ci.org/chemdemo/everyauth-cn)
 
 [中文说明](https://github.com/chemdemo/everyauth-cn/blob/master/README_zh.md)
 
