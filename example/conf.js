@@ -8,8 +8,8 @@ module.exports = {
     , appSecret: 'e0e2ae6cc92e787b0e41dadd589ea0be'
   }
   , weibo: {
-    appKey: '4158538237'
-    , appSecret: '60cf12b216f01dcc852949f533139504'
+    appKey: '1181236868'
+    , appSecret: '15a6f51bb205e2b5d0e03808352df3e7'
   }
   , baidu: {
     appId: '1626752',
@@ -17,8 +17,8 @@ module.exports = {
     , appSecret: 'GGlTir0f50AaIHgurOPz4QjICQEKEd9c'
   }
   , douban: {
-    apiKey: '00f40e937cdb2eca02dc2bba76918c5e'
-    , Secret: 'd3d1228a10513647'
+    apiKey: '03ae9c56da1065280b0bd5048e312f78'
+    , Secret: '41324a35d4881286'
   }
   , renren: {
     appId: '243368'
