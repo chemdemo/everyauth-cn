@@ -11,7 +11,7 @@ function addUser (source, sourceUser) {
   var user;
   if (arguments.length === 1) { // password-based
     user = sourceUser = source;
-    user.id = ++nextUserId;
+    user.uid = ++nextUserId;
     return usersById[nextUserId] = user;
   } else { // non-password-based
     user = usersById[++nextUserId] = {id: nextUserId};
@@ -27,6 +27,7 @@ var usersByBaiduId = {};
 var usersByDoubanId = {};
 var usersByRenrenId = {};
 var usersByTqqId = {};
+var usersByTaobaoId = {};
 var usersByLogin = {
   'demo@example.com': addUser({ login: 'demo@example.com', password: 'pass'})
 };
@@ -45,8 +46,8 @@ everyauth
     .appId(conf.qq.appId)
     .appSecret(conf.qq.appKey)
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, qqUserMetadata) {
-      return usersByQQId[qqUserMetadata.id] ||
-        (usersByQQId[qqUserMetadata.id] = addUser('qq', qqUserMetadata));
+      return usersByQQId[qqUserMetadata.uid] ||
+        (usersByQQId[qqUserMetadata.uid] = addUser('qq', qqUserMetadata));
     })
     .redirectPath('/');
 
@@ -56,8 +57,8 @@ everyauth
     .appId(conf.weibo.appKey)
     .appSecret(conf.weibo.appSecret)
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, weiboUserMetadata) {
-      return usersByWeiboId[weiboUserMetadata.id] ||
-        (usersByWeiboId[weiboUserMetadata.id] = addUser('weibo', weiboUserMetadata));
+      return usersByWeiboId[weiboUserMetadata.uid] ||
+        (usersByWeiboId[weiboUserMetadata.uid] = addUser('weibo', weiboUserMetadata));
     })
     .redirectPath('/');
 
@@ -67,8 +68,8 @@ everyauth
     .appId(conf.baidu.apiKey)
     .appSecret(conf.baidu.appSecret)
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, baiduUserMetadata) {
-      return usersByBaiduId[baiduUserMetadata.id] ||
-        (usersByBaiduId[baiduUserMetadata.id] = addUser('baidu', baiduUserMetadata));
+      return usersByBaiduId[baiduUserMetadata.uid] ||
+        (usersByBaiduId[baiduUserMetadata.uid] = addUser('baidu', baiduUserMetadata));
     })
     .redirectPath('/');
 
@@ -78,8 +79,8 @@ everyauth
     .appId(conf.douban.apiKey)
     .appSecret(conf.douban.Secret)
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, doubanUserMetadata) {
-      return usersByDoubanId[doubanUserMetadata.id] ||
-        (usersByDoubanId[doubanUserMetadata.id] = addUser('douban', doubanUserMetadata));
+      return usersByDoubanId[doubanUserMetadata.uid] ||
+        (usersByDoubanId[doubanUserMetadata.uid] = addUser('douban', doubanUserMetadata));
     })
     .redirectPath('/');
 
@@ -89,8 +90,8 @@ everyauth
     .appId(conf.renren.appKey)
     .appSecret(conf.renren.appSecret)
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, renrenUserMetadata) {
-      return usersByRenrenId[renrenUserMetadata.id] ||
-        (usersByRenrenId[renrenUserMetadata.id] = addUser('renren', renrenUserMetadata));
+      return usersByRenrenId[renrenUserMetadata.uid] ||
+        (usersByRenrenId[renrenUserMetadata.uid] = addUser('renren', renrenUserMetadata));
     })
     .redirectPath('/');
 
@@ -100,8 +101,20 @@ everyauth
     .appId(conf.tqq.appKey)
     .appSecret(conf.tqq.appSecret)
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, tqqUserMetadata) {
-      return usersByTqqId[tqqUserMetadata.id] ||
-        (usersByTqqId[tqqUserMetadata.id] = addUser('tqq', tqqUserMetadata));
+      return usersByTqqId[tqqUserMetadata.uid] ||
+        (usersByTqqId[tqqUserMetadata.uid] = addUser('tqq', tqqUserMetadata));
+    })
+    .redirectPath('/');
+
+everyauth
+  .taobao
+    .myHostname('http://oauth.dmfeel.com')
+    .appId(conf.taobao.appKey)
+    .appSecret(conf.taobao.appSecret)
+    .role('buyer')
+    .findOrCreateUser( function (session, accessToken, accessTokenExtra, taobaoUserMetadata) {
+      return usersByTaobaoId[taobaoUserMetadata.uid] ||
+        (usersByTaobaoId[taobaoUserMetadata.uid] = addUser('taobao', taobaoUserMetadata));
     })
     .redirectPath('/');
 

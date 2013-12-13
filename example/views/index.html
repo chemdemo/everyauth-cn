@@ -11,7 +11,7 @@
     <a class="renren" href="/auth/renren" title="人人"></a>
     <a class="tqq" href="/auth/tqq" title="腾讯微博"></a>
     <a class="taobao" href="/auth/taobao" title="淘宝"></a>
-    <a class="alipay" href="/auth/alipay" title="支付宝"></a>
+    <!-- <a class="alipay" href="/auth/alipay" title="支付宝"></a> -->
 </div>
 <div class="auth-pass">
     <h4>使用自家账号授权：</h4>
@@ -48,11 +48,6 @@
 <h3>使用淘宝账号登陆：</h3>
 <p class="result">{{ JSON.stringify(everyauth.taobao.user, null, '\t'); }}</p>
 {% endif %}
-{% if everyauth.alipay %}
-<h3>使用支付宝账号登陆：</h3>
-<p class="result">{{ JSON.stringify(everyauth.alipay.user, null, '\t'); }}</p>
-{% endif %}
-</div>
 <p><a href="/logout">登出</a></p>
 {% endif %}
 {% endblock %}
