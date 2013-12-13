@@ -7,7 +7,6 @@
     },
     "dependencies": {},
     "devDependencies": {
-        "swig": "*",
-        "xml2json": "*"
+        "swig": "*"
     }
 }
