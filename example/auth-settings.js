@@ -1,6 +1,5 @@
 var everyauth = require('../index');
 var conf = require('./conf');
-var xml2json = require('xml2json');
 
 // open debug mode
 everyauth.debug = true;
@@ -113,14 +112,11 @@ everyauth
     .appId(conf.taobao.appKey)
     .appSecret(conf.taobao.appSecret)
     .role('buyer')
-    .format('xml')
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, taobaoUserMetadata) {
-      var data = this._format === 'xml' ? 
-        xml2json.toJson(taobaoUserMetadata, {object: true, arrayNotation: true}) : 
-        taobaoUserMetadata;
-      var res = data['user_' + this._role + '_get_response'];
+      var res = taobaoUserMetadata['user_' + this._role + '_get_response'];
       var tbId = res ? res.user.user_id : 'error_response';
-      return usersByTaobaoId[tbId] || (usersByTaobaoId[tbId] = addUser('taobao', data));
+      return usersByTaobaoId[tbId] || 
+        (usersByTaobaoId[tbId] = addUser('taobao', taobaoUserMetadata));
     })
     .redirectPath('/');
 
