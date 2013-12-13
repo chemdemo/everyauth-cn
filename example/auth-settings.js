@@ -1,5 +1,6 @@
 var everyauth = require('../index');
 var conf = require('./conf');
+var xml2json = require('xml2json');
 
 // open debug mode
 everyauth.debug = true;
@@ -101,8 +102,8 @@ everyauth
     .appId(conf.tqq.appKey)
     .appSecret(conf.tqq.appSecret)
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, tqqUserMetadata) {
-      return usersByTqqId[tqqUserMetadata.openid] ||
-        (usersByTqqId[tqqUserMetadata.openid] = addUser('tqq', tqqUserMetadata));
+      return usersByTqqId[tqqUserMetadata.data.openid] ||
+        (usersByTqqId[tqqUserMetadata.data.openid] = addUser('tqq', tqqUserMetadata));
     })
     .redirectPath('/');
 
@@ -112,10 +113,14 @@ everyauth
     .appId(conf.taobao.appKey)
     .appSecret(conf.taobao.appSecret)
     .role('buyer')
+    .format('xml')
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, taobaoUserMetadata) {
-      var tbId = taobaoUserMetadata['user_' + this._role + '_get_response'].user.user_id;
-      return usersByTaobaoId[tbId] ||
-        (usersByTaobaoId[tbId] = addUser('taobao', taobaoUserMetadata));
+      var data = this._format === 'xml' ? 
+        xml2json.toJson(taobaoUserMetadata, {object: true, arrayNotation: true}) : 
+        taobaoUserMetadata;
+      var res = data['user_' + this._role + '_get_response'];
+      var tbId = res ? res.user.user_id : 'error_response';
+      return usersByTaobaoId[tbId] || (usersByTaobaoId[tbId] = addUser('taobao', data));
     })
     .redirectPath('/');
 
