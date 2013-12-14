@@ -1,0 +1,6 @@
+test/
+example/
+Makefile
+.travis.yml
+*.psd
+.tmp/
