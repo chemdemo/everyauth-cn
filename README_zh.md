@@ -12,7 +12,7 @@ everyauth-cn作为express或者connect模块的中间件，统一封装了国内
 
 ## 安装：
 
-`npm install everyauth-cn`
+    npm install everyauth-cn
 
 ## 使用：
 

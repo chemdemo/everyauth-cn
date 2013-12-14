@@ -18,7 +18,7 @@ This project aims connecting users to most of Chinese SNS sites. It reuse most o
 
 ## Installation
 
-`npm install everyauth-cn`
+    `npm install everyauth-cn`
 
 ## usage：
 
