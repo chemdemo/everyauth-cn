@@ -20,7 +20,7 @@ This project aims connecting users to most of Chinese SNS sites. It reuse most o
 
 1. Install from npm:
 
-`npm install everyauth-cn`
+  `npm install everyauth-cn`
 
 2. Register your account and app on the authorization sites, such as [qq connect](http://connect.qq.com) if you want to login via QQ, get your own appid and appSecret.
 

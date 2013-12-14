@@ -14,7 +14,7 @@ everyauth-cn作为express或者connect模块的中间件，统一封装了国内
 
 1. 通过npm来安装：
 
-`npm install everyauth-cn`
+  `npm install everyauth-cn`
 
 2. 在想要授权的社交网站注册自己的网站（应用），获取相应的appId和appSecret，这个必须的啦，最后会得到一份配置（参考示例：[example/conf.js](https://github.com/chemdemo/everyauth-cn/blob/master/example/conf.js)），这里要提醒下，QQ互联、百度、新浪微博在注册app的时候需要验证网站，/pub/目录下有个bd_xxx.txt和/views/home.jade里面meta标签就是用来验证的
 
