@@ -10,15 +10,15 @@ everyauth-cn作为express或者connect模块的中间件，统一封装了国内
 
 - 同时支持拥有自家账号体系的网站的用户注册和登陆（这部分复用everyauth）
 
+## 安装：
+
+`npm install everyauth-cn`
+
 ## 使用：
 
-1. 通过npm来安装：
+1. 在想要授权的社交网站注册自己的网站（应用），获取相应的appId和appSecret，这个必须的啦，最后会得到一份配置（参考示例：[example/conf.js](https://github.com/chemdemo/everyauth-cn/blob/master/example/conf.js)），这里要提醒下，QQ互联、百度、新浪微博在注册app的时候需要验证网站，/pub/目录下有个bd_xxx.txt和/views/home.jade里面meta标签就是用来验证的
 
-  `npm install everyauth-cn`
-
-2. 在想要授权的社交网站注册自己的网站（应用），获取相应的appId和appSecret，这个必须的啦，最后会得到一份配置（参考示例：[example/conf.js](https://github.com/chemdemo/everyauth-cn/blob/master/example/conf.js)），这里要提醒下，QQ互联、百度、新浪微博在注册app的时候需要验证网站，/pub/目录下有个bd_xxx.txt和/views/home.jade里面meta标签就是用来验证的
-
-3. 参考[example/auth-settings.js](https://github.com/chemdemo/everyauth-cn/blob/master/example/auth-settings.js)配置各SNS站点的信息，这里以qq为例说明：
+2. 参考[example/auth-settings.js](https://github.com/chemdemo/everyauth-cn/blob/master/example/auth-settings.js)配置各SNS站点的信息，这里以qq为例说明：
 
   `myHostname`：填项目主页地址
 
@@ -30,7 +30,7 @@ everyauth-cn作为express或者connect模块的中间件，统一封装了国内
 
   `redirectPath`：授权成功后重定向地址，默认都是跳回`myHostname`指定的地址
 
-4. 自家账号登陆：只支持邮箱、手机号、用户名三种登陆方式（loginWith配置，值是email, phone, login中一种，其中邮箱和手机号有格式校验，login没有）
+3. 自家账号登陆：只支持邮箱、手机号、用户名三种登陆方式（loginWith配置，值是email, phone, login中一种，其中邮箱和手机号有格式校验，login没有）
 
 ## 示例：
 
