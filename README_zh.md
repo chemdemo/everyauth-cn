@@ -1,4 +1,6 @@
-## 关于everyauth-cn [![Build Status](https://api.travis-ci.org/chemdemo/everyauth-cn.png)](http://travis-ci.org/chemdemo/everyauth-cn)
+## 关于everyauth-cn
+[![Build Status](https://api.travis-ci.org/chemdemo/everyauth-cn.png)](http://travis-ci.org/chemdemo/everyauth-cn)
+[![NPM version](https://badge.fury.io/js/everyauth-cn.png)](http://badge.fury.io/js/everyauth-cn)
 
 在一些项目中需要用到社交账号连接的需求，github上找到了everyauth，everyauth已经做得很完善，只是没中国的SNS网站（废话……），本打算fork everyauth给它添加授权模块，在调试的时候发现国内的网站oauth流程很多地方很不规范，得改动everyauth授权核心代码，而后又担心会影响到everyauth已有模块的功能，所以有了everyauth-cn，授权模块复用everyauth，在此基础上做了修改和bug fix。
 
