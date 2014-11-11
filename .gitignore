@@ -3,5 +3,6 @@
 .DS_Store
 /logs
 /node_modules
+/example/node_modules
 .psd
 ./*.png
