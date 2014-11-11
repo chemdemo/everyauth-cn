@@ -19,6 +19,7 @@ swig.setDefaults({autoescape: false, cache: false});
 
 app
     .set('port', process.env.PORT || 3015)
+    .set('trust proxy', true)
     .engine('html', swig.renderFile)
     .set('view engine', 'html')
     .set('views', __dirname + '/views')
